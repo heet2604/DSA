@@ -177,6 +177,18 @@ public class SinglyLinkedlists{
         }
         return true;
     }
+    public static boolean cycle(){
+        Node slow=head;
+        Node fast=head;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if(slow==head){
+                return true;
+            }
+        }
+        return false;
+    }
     public static void main(String args[]){
         SinglyLinkedlists ll = new SinglyLinkedlists();
         ll.first(2);
@@ -184,6 +196,5 @@ public class SinglyLinkedlists{
         ll.first(1);
         ll.first(2);
         ll.print();
-        System.out.println(ll.Palin());
     }
 }

@@ -151,7 +151,7 @@ public class SinglyLinkedlists{
         return slow; //mid
     }
 
-    public boolean Palin(){
+    public boolean Palin(){                                         
         if(head==null || head.next==null){
             return true;
         }
@@ -177,7 +177,24 @@ public class SinglyLinkedlists{
         }
         return true;
     }
-    public static boolean cycle(){
+
+      public int dup(Node head){                     //Remove Duplicates
+        if(head==null){
+            return 0;
+        }
+        Node temp=head;
+        while(temp!=null && temp.next!=null){
+            if(temp.data==temp.next.data){
+                temp.next=temp.next.next;
+            }
+            else{
+                temp=temp.next;
+            }
+        }
+        return head.data;
+    }
+    
+    public static boolean cycle(){                         //To check if the linked list has loop 
         Node slow=head;
         Node fast=head;
         while(fast!=null && fast.next!=null){
@@ -194,7 +211,7 @@ public class SinglyLinkedlists{
         ll.first(2);
         ll.first(1);
         ll.first(1);
-        ll.first(2);
+        ll.first(3);
         ll.print();
     }
 }

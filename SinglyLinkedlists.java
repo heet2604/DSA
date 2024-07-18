@@ -206,6 +206,66 @@ public class SinglyLinkedlists{
         }
         return false;
     }
+
+    public Node getMid(Node head) {                          //Merge sort on Linked List
+        if (head == null || head.next == null) {
+            return head;
+        }
+        Node slow = head;
+        Node fast = head.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
+    public Node merge(Node h1, Node h2) {
+        Node merged = new Node(-1); // Dummy node
+        Node temp = merged;
+
+        while (h1 != null && h2 != null) {
+            if (h1.data <= h2.data) {
+                temp.next = h1;
+                h1 = h1.next;
+            } else {
+                temp.next = h2;
+                h2 = h2.next;
+            }
+            temp = temp.next;
+        }
+        temp.next = (h1 != null) ? h1 : h2;
+
+        return merged.next; // Return the head of the merged list
+    }
+
+    public Node mergesort(Node head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        Node mid = getMid(head);
+        Node righthead = mid.next;
+        mid.next = null;
+        
+        Node newleft = mergesort(head);
+        Node newright = mergesort(righthead);
+
+        return merge(newleft, newright);
+    }
+
+    public static void main(String args[]) {
+        SinglyLinkedlists ll = new SinglyLinkedlists();
+        first(3);
+        first(40);
+        first(12);
+        first(1);
+        first(34);
+        print();
+        ll.head = ll.mergesort(ll.head);
+        print();
+    }
+}
     public static void main(String args[]){
         SinglyLinkedlists ll = new SinglyLinkedlists();
         ll.first(2);

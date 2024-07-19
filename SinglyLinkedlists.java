@@ -253,25 +253,52 @@ public class SinglyLinkedlists{
 
         return merge(newleft, newright);
     }
+    
+    public void zigzag(){                                 //convert the linkedlist into zig-zag form
+        //mid 
+        Node slow=head;
+        Node fast=head;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        Node mid = slow;
 
+        //reverse 2nd half
+        Node curr=mid.next;
+        mid.next=null;
+        Node prev=null;
+        Node next;
+        while(curr!=null){
+            next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
+        }
+        Node left=head;
+        Node right = prev;
+        Node nextL,nextR;
+
+        //alternate merging
+        while(left!=null && right!=null){
+            nextL=left.next;
+            left.next=right;
+            nextR=right.next;
+            right.next=nextL;
+
+            right=nextR;
+            left=nextL;
+        }
+    }
     public static void main(String args[]) {
         SinglyLinkedlists ll = new SinglyLinkedlists();
+        first(5);
+        first(4);
         first(3);
-        first(40);
-        first(12);
+        first(2);
         first(1);
-        first(34);
         print();
-        ll.head = ll.mergesort(ll.head);
+        ll.zigzag();
         print();
-    }
-}
-    public static void main(String args[]){
-        SinglyLinkedlists ll = new SinglyLinkedlists();
-        ll.first(2);
-        ll.first(1);
-        ll.first(1);
-        ll.first(3);
-        ll.print();
     }
 }

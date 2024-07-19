@@ -1,0 +1,157 @@
+/*import java.util.*;                                       //LINEAR SEARCH ON 2D ARRAY
+
+public class TwoArrays {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int arr[][] = new int[3][3];
+        int n = arr.length, m = arr[0].length;
+        boolean flag=false;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                arr[i][j] = sc.nextInt();
+            }
+        }
+        System.out.println("Enter the number you want to search : ");
+        int key = sc.nextInt();
+
+        search(arr,key);
+    }
+
+    public static boolean search(int arr[][],int key){
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[0].length; j++) {
+                if (arr[i][j] == key) {
+                    System.out.println("Number is present in cell : " + "(" + i + "," + j + ")");
+                    return true;
+                }
+            }
+        }
+        System.out.println("Number not found");
+        return false;
+    }
+}
+*/
+
+/*public class TwoArrays{                                                       //SPIRAL MATRIX
+    public static void main(String args[]){
+        int arr[][]={{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+        spiral(arr);
+    }
+
+    public static void spiral(int arr[][]){
+        int startrow=0;
+        int endrow=arr.length-1;
+        int startcol=0;
+        int endcol=arr[0].length-1;
+
+        while(startrow<=endrow && startcol<=endcol){
+            //top
+            for(int j=startcol;j<=endcol;j++){
+                System.out.print(arr[startrow][j] + " ");
+            }
+            //right
+            for(int i=startrow+1;i<=endrow;i++){
+                System.out.print(arr[i][endcol]+ " ");
+            }
+            //bottom
+            for(int j=endcol-1;j>=startcol;j--){
+                System.out.print(arr[endrow][j]+ " ");
+            }
+            //left
+            for(int i=endrow-1;i>=startrow+1;i--){
+                System.out.print(arr[i][startcol] + " ");
+            }
+            startcol++;
+            startrow++;
+            endcol--;
+            endrow--;
+        } 
+    }
+}*/
+
+
+
+/*public class TwoArrays{                                                             //SUM OF DIAGONALS
+    public static void main(String args[]){
+        int arr[][]={{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+        int x=pdiagonal(arr);
+        System.out.println("The sum of the primary diagonal is : " + x);
+    }
+
+    public static int pdiagonal(int arr[][]){
+        int sum=0;
+
+        for(int i=0;i<arr.length;i++){
+            for(int j=0;j<arr[0].length;j++){
+                if(i==j){
+                    sum+=arr[i][j];
+                }
+                else if(i+j==arr.length-1){
+                    sum+=arr[i][j];
+                }
+            }
+        }
+        return sum;
+    }
+}*/
+
+/*public class TwoArrays{                                                              //Find the occurances of any given string
+    public static void main(String args[]){
+        String arr[][]={{"a","b","c"},{"a","f","g"}};
+        String key="a";
+        int x=search(arr,"a");
+        System.out.println("The number is present " + x + " times");
+        
+    }
+    public static int search(String arr[][],String key){
+        int count=0;
+        for(int i=0;i<arr.length;i++){
+            for(int j=0;j<arr[0].length;j++){
+                if(arr[i][j]==key){
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+}*/
+
+/*public class TwoArrays{
+    public static void main(String args[]){
+        int arr[][]={{1,2,3},{10,2,67},{8,9,0}};
+        int sum=0;
+        for(int j=0;j<arr[0].length;j++){
+            sum+=arr[1][j];
+        }
+        System.out.println(sum);
+    }
+}*/
+
+
+public class TwoArrays{
+    public static void main(String args[]){
+        int arr[][]={{2,3,4},{1,6,7}};
+        
+        int r=2;
+        int c=3;
+        int transpose[][]=new int[c][r];
+        for(int i=0;i<r;i++){
+            for(int j=0;j<c;j++){
+                transpose[j][i]=arr[i][j];
+            }
+        }
+            
+        print(transpose); 
+    }
+
+    public static void print(int arr[][]){
+        for(int i=0;i<arr.length;i++){
+            for(int j=0;j<arr[0].length;j++){
+                System.out.print(arr[i][j] + "   ");
+            }
+            System.out.println();
+        }
+    }
+}

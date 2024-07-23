@@ -42,6 +42,19 @@ public class doubly {
         size--;
         return val;
     }
+    public void reverse(){                   //reverse the doubly linkedlist
+            Node curr=head;
+            Node prev=null;
+            Node next;
+            while(curr!=null){
+                next=curr.next;
+                curr.next=prev;
+                curr.prev=next;
+                prev=curr;
+                curr=next;
+            }
+            head=prev;
+        }
     public void print(){
         Node temp=head;
         while(temp!=null){
@@ -56,9 +69,6 @@ public class doubly {
         d.addfirst(3);
         d.addfirst(2);
         d.addfirst(1);
-        d.print();
-        System.out.println(d.size);
-        d.removehead();
         d.print();
         System.out.println(d.size);
 

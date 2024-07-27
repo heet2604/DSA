@@ -1,4 +1,4 @@
-/*import java.util.ArrayList;
+import java.util.ArrayList;
            
 public class stack {                                                          //stack using arraylist
     public static class stackA{
@@ -45,10 +45,10 @@ public class stack {                                                          //
         }
 
     }
-}*/
+}
 
 
-/*public class stack{                                         //Stack using LinkedLists
+public class stack{                                         //Stack using LinkedLists
     public static class Node{
         int data;
         Node next;
@@ -103,9 +103,9 @@ public class stack {                                                          //
             s.pop();
         }
     }
-}*/
+}
 
-/*import java.util.*;                                                    //Stack using JCF
+import java.util.*;                                                    //Stack using JCF
 
 public class StackA{                                                     //push at the bottom
 
@@ -129,7 +129,7 @@ public class StackA{                                                     //push 
             s.pop();
         }
     }
-}*/
+}
 
 import java.util.*;                                      //Reverse a string using stack
 public class StackA{
@@ -151,6 +151,42 @@ public class StackA{
     public static void main(String args[]){
         String str="Heet Dudhwala";
         System.out.println(reverse(str));
+    }
+}
+
+
+import java.util.*;                                  //reverse a stack
+ 
+public class StackA{
+    public static void bottom(Stack<Integer> s , int data){
+        if(s.empty()){
+            s.push(data);
+            return;
+        }
+        int top = s.pop();
+        bottom(s,data);
+        s.push(top);
+    }
+
+    public static void reverse(Stack<Integer> s){
+        if(s.empty()){
+            return;
+        }
+        int top=s.pop();
+        reverse(s);
+        bottom(s,top);
+    }
+
+    public static void main(String[] args) {
+        Stack<Integer> s = new Stack<>();
+        s.push(3);
+        s.push(2);
+        s.push(1);
+        reverse(s);
+        while(!s.empty()){
+            System.out.println(s.peek());
+            s.pop();
+        }
     }
 }
 

@@ -105,7 +105,7 @@ public class stack {                                                          //
     }
 }*/
 
-import java.util.*;                                                    //Stack using JCF
+/*import java.util.*;                                                    //Stack using JCF
 
 public class StackA{                                                     //push at the bottom
 
@@ -128,6 +128,29 @@ public class StackA{                                                     //push 
             System.out.println(s.peek());
             s.pop();
         }
+    }
+}*/
+
+import java.util.*;                                      //Reverse a string using stack
+public class StackA{
+    public static String reverse(String str){
+        Stack<Character> s = new Stack<>();
+        int i=0;
+        while(i<str.length()){
+            s.push(str.charAt(i));
+            i++;
+        }
+        StringBuilder res = new StringBuilder("");
+        while(!s.empty()){
+            char curr=s.pop();
+            res.append(curr);
+        }
+        return res.toString();
+    }
+
+    public static void main(String args[]){
+        String str="Heet Dudhwala";
+        System.out.println(reverse(str));
     }
 }
 

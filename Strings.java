@@ -1,4 +1,4 @@
-public class strings {
+public class strings {                                   //Palindrome
     public static boolean palin(String s){
         int n = s.length();
         for(int i=0;i<s.length()/2;i++){
@@ -20,7 +20,7 @@ public class strings {
 }
 
 
-/*public class strings{
+public class strings{
     public static void main(String args[]){
         String fruits[]={"apple","banana","mango"};
         String largest=fruits[0];
@@ -31,10 +31,10 @@ public class strings {
         }
         System.out.println(largest);
     }
-}*/
+}
 
 
-/*public class strings{
+public class strings{
     public static void main(String args[]){
         String str="hi, i am heet";
         System.out.println(Upper(str));
@@ -56,9 +56,9 @@ public class strings {
         }
         return sb.toString();
     }
-}*/
+}
 
-/*import java.util.*;                                         //total lowercase vowels in a string 
+import java.util.*;                                         //total lowercase vowels in a string 
 public class strings{
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
@@ -72,9 +72,9 @@ public class strings{
         }
         System.out.println(count);
     }
-}*/
+}
 
-/*import java.util.*;                                                           //ANAGRAMS
+import java.util.*;                                                           //ANAGRAMS
 
 public class string{
     public static boolean anagram(String str1, String str2){
@@ -100,4 +100,38 @@ public class string{
         boolean result = anagram(s1,s2);
         System.out.println(result);
     }
-}*/
+} 
+
+public class strings{                                //Sentence Palindrome
+    public static boolean sentence(String str){ 
+        int left=0;
+        int right=str.length()-1;
+        str=str.toLowerCase();
+
+        while(left<=right){
+            
+            char getl = str.charAt(left);
+            char geth = str.charAt(right);
+
+            if(!(getl>='a' && geth<='z')){
+                left++;
+            }
+            else if(!(geth>='a' && geth<='z')){
+                right--;
+            }
+            else if(getl==geth){
+                left++;
+                right--;
+            }
+            else{
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        String str = "race car";
+        System.out.println(sentence(str));
+    }
+}

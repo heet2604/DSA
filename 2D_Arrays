@@ -130,7 +130,7 @@ public class TwoArrays {
 }*/
 
 
-public class TwoArrays{
+public class TwoArrays{                                  //Transpose of the matrix
     public static void main(String args[]){
         int arr[][]={{2,3,4},{1,6,7}};
         

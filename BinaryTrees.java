@@ -101,4 +101,16 @@ public class binarytree {
         int total=lc+rc+1;
         return total;
     }
+
+     public static int diameter(Node root){               //diameter of a tree
+        if(root==null){
+            return 0;
+        }
+        int ld=diameter(root.left);
+        int rd=diameter(root.right);
+        int lh=height(root.right);
+        int rh=height(root.right);
+        int self=lh+rh+1;
+        return Math.max(self,Math.max(ld,rd));
+    }
 }

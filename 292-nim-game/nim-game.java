@@ -3,6 +3,8 @@ class Solution {
         if(n%4==0){
             return false;
         }
-        return true;
+        else{
+         return true;
+        }
     }
 }

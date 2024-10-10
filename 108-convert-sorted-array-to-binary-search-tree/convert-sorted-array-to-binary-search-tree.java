@@ -15,15 +15,14 @@
  */
 class Solution {
     public TreeNode create(int nums[],int left,int right){
-        if(left>right){            //if left>right null (base case)
+        if(left>right){          //base call (right always > left)
             return null;
         }
-        int mid=(left+right)/2;
-        TreeNode node = new TreeNode(nums[mid]);  //mid element = root
- 
-        node.left=create(nums,left,mid-1);        //recursion for left and right parts
-        node.right=create(nums,mid+1,right);
-        return node;
+        int mid = (left+right)/2;
+        TreeNode root = new TreeNode(nums[mid]); //as the array is sorted the element at the mid position will be the mid as well as the root
+        root.left = create(nums,left,mid-1);
+        root.right = create(nums,mid+1,right);
+        return root;
     }
     public TreeNode sortedArrayToBST(int[] nums) {
         return create(nums,0,nums.length-1);

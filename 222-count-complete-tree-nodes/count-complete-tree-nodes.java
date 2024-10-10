@@ -20,8 +20,8 @@ class Solution {
         }
         int left = countNodes(root.left);
         int right = countNodes(root.right);
-        int total = left + right + 1;
-        return total;
+        return left + right + 1;
+        // total;
     }
 
 }

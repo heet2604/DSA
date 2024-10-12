@@ -20,14 +20,16 @@ class Solution {
             head=head.next;
             return head;
         }
-        int i=1;
-        ListNode prev = head;
-        int find = size-n;
-        while(i<find){
-            prev=prev.next;
-            i++;
+        else{
+            int i=1;
+            ListNode prev = head;
+            int find = size-n;
+            while(i<find){
+                prev=prev.next;
+                i++;
+            }
+            prev.next = prev.next.next;
         }
-        prev.next = prev.next.next;
         return head;
     }
 }

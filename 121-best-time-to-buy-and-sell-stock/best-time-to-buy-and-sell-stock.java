@@ -7,8 +7,13 @@ class Solution {
         int maxprofit = 0;
         int minprice = Integer.MAX_VALUE;
         for(int i=0;i<prices.length;i++){
-            minprice = Math.min(minprice,prices[i]);
-            maxprofit = Math.max(maxprofit,prices[i]-minprice);
+           if(prices[i]<minprice){
+                minprice = prices[i];
+            }
+            int profit = prices[i]-minprice;
+            if(profit>maxprofit){
+                maxprofit = profit;
+            }
         }
         return maxprofit;
     }

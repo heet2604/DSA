@@ -12,7 +12,7 @@ class Solution {
             int mid=(l+r)/2;
             if(nums[mid]==target){
                 result = mid;       
-                r=mid-1;        // for leftmost index (searching in first half of the array)
+                r=mid-1;        // for leftmost "index" (searching in first half of the array)
             }
             else if(nums[mid]<target){
                 l=mid+1;
@@ -31,7 +31,7 @@ class Solution {
             int mid=(l+r)/2;
             if(nums[mid]==target){
                 result = mid;
-                l=mid+1;          //for rightmost index (searching in the second part of the array)
+                l=mid+1;          //for rightmost "index" (searching in the second part of the array)
             }
             else if(nums[mid]<target){
                 l=mid+1;

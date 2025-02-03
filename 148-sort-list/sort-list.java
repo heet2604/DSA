@@ -9,32 +9,60 @@
  * }
  */
 class Solution {
+
+    public ListNode getmid(ListNode head){
+        ListNode slow = head;
+        ListNode fast = head;
+        ListNode prev = null;
+        while(fast!=null && fast.next!=null){
+            prev=slow;
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        if(prev!=null){
+            prev.next=null;
+        }
+        return slow;
+    }
+
+    public ListNode merge(ListNode h1,ListNode h2){
+        ListNode merged = new ListNode(-1);
+        ListNode temp = merged;
+        while(h1!=null && h2!=null){
+            if(h1.val<=h2.val){
+                temp.next = h1;
+                h1 = h1.next;
+                temp=temp.next;
+            }
+            else{
+                temp.next = h2;
+                h2 = h2.next;
+                temp=temp.next;
+            }
+        }
+        while(h1!=null){
+            temp.next = h1;
+            h1 = h1.next;
+            temp=temp.next;
+        }
+        while(h2!=null){
+            temp.next = h2;
+            h2 = h2.next;
+            temp=temp.next;
+        }
+        return merged.next;
+    }
     public ListNode sortList(ListNode head) {
+
         if(head==null || head.next==null){
             return head;
-        }     
-        int size=0;
-        ListNode temp = head;
-        while(temp!=null){
-            size++;
-            temp=temp.next;
         }
-
-        int arr[]=new int[size];
-        temp = head;
-        int i = 0;
-        while(temp!=null){
-            arr[i]=temp.val;
-            i++;
-            temp=temp.next;
-        }
-        ListNode dummy = new ListNode(0);
-        ListNode newNode = dummy;
-        Arrays.sort(arr);
-        for(int j=0;j<size;j++){
-            newNode.next = new ListNode(arr[j]);
-            newNode = newNode.next;
-        }
-        return dummy.next;
+        ListNode mid = getmid(head);
+        ListNode righthead = mid;
+        //mid.next = null;
+        
+        ListNode newleft = sortList(head);
+        ListNode newright = sortList(righthead);
+        return merge(newleft,newright);
     }
 }

@@ -4,6 +4,7 @@ class Solution {
         for(int i=0;i<sentence.length();i++){
             set.add(sentence.charAt(i));
         }
-        return set.size()==26;
+        if(set.size()==26) return true;
+        return false;
     }
 }
